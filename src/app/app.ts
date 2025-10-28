@@ -1,13 +1,18 @@
 import { Component, signal } from '@angular/core';
-import { Child } from "./child/child";
+import { Child } from './child/child';
 
 @Component({
   selector: 'app-root',
   imports: [Child],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
-
 export class App {
   protected readonly title = signal('BankWebApp');
+  ChildDataValue: any;
+
+  getChildDataToParent(event: any) {
+    console.log(event);
+    this.ChildDataValue = event;
+  }
 }

@@ -1,3 +1,5 @@
 <p>Child Component!</p>
 
-Value of Parent Comp : {{Pdata}}
+<!-- Value of Parent Comp : {{Pdata}} -->
+
+Child Component : <input type="text" #CComp (keyup)="sendDataFromChildToParent(CComp.value)">
