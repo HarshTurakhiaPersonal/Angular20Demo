@@ -10,38 +10,6 @@
     
     Value of Child Component : {{ChildDataValue}} -->
 
-    <hr>
-    @for(item of employees; track item.id) {
-    <ul>
-        <span> <strong> Id </strong> : {{ item.id }}</span>
-        <span> <strong> Name </strong> : {{ item.name }}</span>
-        <span> <strong> Age </strong> : {{ item.age }}</span>
-    </ul>
-    } @empty {
-    <h5>No employees found!</h5>
-    }
-
-    <hr>
-    <table style="width: 100%; border: 2px solid  black;">
-        <tr>
-            <th>Index</th>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Age</th>
-        </tr>
-        @for(item of employees; track item.id; let i = $index) {
-        <tr>
-            <td>{{i+1}}</td>
-            <td>{{ item.id }}</td>
-            <td>{{ item.name }}</td>
-            <td>{{ item.age }}</td>
-        </tr>
-        } @empty {
-        <tr>
-            <td colspan="3">
-                <h5>No employees found!</h5>
-            </td>
-        </tr>
-        }
-    </table>
+    
+    <app-structural-directive></app-structural-directive>
 </div>
