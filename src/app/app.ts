@@ -1,10 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { StructuralDirective } from "./structural-directive/structural-directive";
+import { AttributeDirective } from "./attribute-directive/attribute-directive";
 // import { Child } from './child/child';
 
 @Component({
   selector: 'app-root',
-  imports: [StructuralDirective],
+  imports: [StructuralDirective, AttributeDirective],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
