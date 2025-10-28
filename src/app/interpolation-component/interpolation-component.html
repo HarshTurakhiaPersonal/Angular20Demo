@@ -1,0 +1,28 @@
+<hr>
+<h1>Interpolation Component</h1>
+<h2>City : {{city}} </h2>
+<button (click)="changeCity()">Change city</button>
+
+<hr>
+<ul>
+    <span>Correct</span>
+    <li>Name : {{nullCompany1.name}}</li>
+    <li>Location : {{nullCompany1.location}}</li>
+</ul>
+
+<hr>
+<ul>
+    <span>This will not give error as we have used ? operator (null collaesing)</span> <br>
+    <span>It will just not print the value</span>
+    <li>Name : {{nullCompany2?.name}}</li>
+    <li>Location : {{nullCompany2?.location}}</li>
+</ul>
+
+<hr>
+<ul>
+    <span>This will give error</span>
+    <li>Name : {{nullCompany3.name}}</li>
+    <li>Location : {{nullCompany3.location}}</li>
+</ul>
+
+<hr>
