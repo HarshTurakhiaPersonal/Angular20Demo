@@ -1,1 +1,8 @@
-<h1>Hello World Angular-20!</h1>
+<div style="text-align: center;">
+    <h1>Hello World Angular-20!</h1>
+
+    Parent Comp : 
+    <input type="text" #PComp (keyup)="0">
+
+    <app-child [Pdata]="PComp.value"></app-child>
+</div>
