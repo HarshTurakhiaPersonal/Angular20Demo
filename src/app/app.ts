@@ -3,11 +3,12 @@ import { StructuralDirective } from "./structural-directive/structural-directive
 import { AttributeDirective } from "./attribute-directive/attribute-directive";
 import { InterpolationCOmponent } from "./interpolation-component/interpolation-component";
 import { PropertyBinding } from "./property-binding/property-binding";
+import { EventBinding } from "./event-binding/event-binding";
 // import { Child } from './child/child';
 
 @Component({
   selector: 'app-root',
-  imports: [StructuralDirective, AttributeDirective, InterpolationCOmponent, PropertyBinding],
+  imports: [StructuralDirective, AttributeDirective, InterpolationCOmponent, PropertyBinding, EventBinding],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

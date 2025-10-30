@@ -1,0 +1,11 @@
+<h1>Event Binding Component</h1>
+
+<input type="text" (blur)="getName($event)" placeholder="Enter your name">
+<input type="text" (blur)="getEmail($event)" placeholder="Enter your email">
+
+<button>Submit</button>
+
+<hr>
+<h3>Name : {{ name }}</h3>
+<h3>Email : {{ email }}</h3>
+
