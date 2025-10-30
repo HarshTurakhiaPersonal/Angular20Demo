@@ -1,0 +1,101 @@
+<hr>
+<div class="container mt-4">
+    <h2>🧱 Reactive Form Demo (Angular 20)</h2>
+
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <!-- NAME -->
+        <div class="form-group mb-3">
+            <label>Name</label>
+            <input type="text" formControlName="name" class="form-control" />
+            <div class="text-danger" *ngIf="f.name.touched && f.name.invalid">
+                <small *ngIf="f.name.errors?.['required']">Name is required.</small>
+                <small *ngIf="f.name.errors?.['minlength']">Min 3 characters.</small>
+            </div>
+        </div>
+
+        <!-- EMAIL -->
+        <div class="form-group mb-3">
+            <label>Email</label>
+            <input type="email" formControlName="email" class="form-control" />
+            <div class="text-danger" *ngIf="f.email.touched && f.email.invalid">
+                <small *ngIf="f.email.errors?.['required']">Email is required.</small>
+                <small *ngIf="f.email.errors?.['email']">Invalid email format.</small>
+            </div>
+        </div>
+
+        <!-- PASSWORD -->
+        <div class="form-group mb-3">
+            <label>Password</label>
+            <input type="password" formControlName="password" class="form-control" />
+            <div class="text-danger" *ngIf="f.password.touched && f.password.invalid">
+                <small *ngIf="f.password.errors?.['required']">Password required.</small>
+                <small *ngIf="f.password.errors?.['minlength']">Min 6 characters.</small>
+                <small *ngIf="f.password.errors?.['pattern']">
+                    Must contain 1 uppercase and 1 number.
+                </small>
+            </div>
+        </div>
+
+        <!-- GENDER -->
+        <div class="mb-3">
+            <label>Gender</label><br />
+            <label>
+                <input type="radio" formControlName="gender" value="male" /> Male
+            </label>
+            <label class="ms-3">
+                <input type="radio" formControlName="gender" value="female" /> Female
+            </label>
+            <div class="text-danger" *ngIf="f.gender.touched && f.gender.invalid">
+                <small>Gender is required.</small>
+            </div>
+        </div>
+
+        <!-- COUNTRY -->
+        <div class="form-group mb-3">
+            <label>Country</label>
+            <select formControlName="country" class="form-control">
+                <option value="">Select a country</option>
+                <option *ngFor="let c of countries" [value]="c">{{ c }}</option>
+            </select>
+            <div class="text-danger" *ngIf="f.country.touched && f.country.invalid">
+                <small>Country is required.</small>
+            </div>
+        </div>
+
+        <!-- SKILLS -->
+        <div class="form-group mb-3">
+            <label>Skills</label><br />
+            <label *ngFor="let skill of skillsList" class="me-3">
+                <input type="checkbox" (change)="toggleSkill(skill, $event)" /> {{ skill }}
+            </label>
+            <div class="text-danger" *ngIf="submitted && f.skills.invalid">
+                <small>At least one skill required.</small>
+            </div>
+        </div>
+
+        <!-- TERMS -->
+        <div class="form-check mb-3">
+            <input type="checkbox" formControlName="terms" class="form-check-input" id="terms" />
+            <label class="form-check-label" for="terms">I agree to the terms</label>
+            <div class="text-danger" *ngIf="f.terms.touched && f.terms.invalid">
+                <small>You must accept the terms.</small>
+            </div>
+        </div>
+
+        <!-- BUTTONS -->
+        <button type="submit" class="btn btn-primary me-2" [disabled]="userForm.invalid">
+            Submit
+        </button>
+        <button type="button" class="btn btn-secondary" (click)="onReset()">
+            Reset
+        </button>
+    </form>
+
+    <!-- DEBUG INFO -->
+    <hr />
+    <h5>🧭 Form Debug Info</h5>
+    <span>{{ userForm.value | json }}</span>
+    <p>Valid: {{ userForm.valid }}</p>
+    <p>Submitted: {{ submitted }}</p>
+</div>
+<hr>

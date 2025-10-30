@@ -7,10 +7,11 @@ import { EventBinding } from "./event-binding/event-binding";
 import { TwoWayDataBinding } from "./two-way-data-binding/two-way-data-binding";
 import { Pipes } from "./pipes/pipes";
 import { TemplateForms } from "./template-forms/template-forms";
+import { ReactiveUserFormComponent } from "./reactive-forms/reactive-forms";
 
 @Component({
   selector: 'app-root',
-  imports: [StructuralDirective, AttributeDirective, InterpolationCOmponent, PropertyBinding, EventBinding, TwoWayDataBinding, Pipes, TemplateForms],
+  imports: [StructuralDirective, AttributeDirective, InterpolationCOmponent, PropertyBinding, EventBinding, TwoWayDataBinding, Pipes, TemplateForms, ReactiveUserFormComponent],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
