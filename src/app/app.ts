@@ -5,11 +5,12 @@ import { InterpolationCOmponent } from "./interpolation-component/interpolation-
 import { PropertyBinding } from "./property-binding/property-binding";
 import { EventBinding } from "./event-binding/event-binding";
 import { TwoWayDataBinding } from "./two-way-data-binding/two-way-data-binding";
+import { Pipes } from "./pipes/pipes";
 // import { Child } from './child/child';
 
 @Component({
   selector: 'app-root',
-  imports: [StructuralDirective, AttributeDirective, InterpolationCOmponent, PropertyBinding, EventBinding, TwoWayDataBinding],
+  imports: [StructuralDirective, AttributeDirective, InterpolationCOmponent, PropertyBinding, EventBinding, TwoWayDataBinding, Pipes],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
