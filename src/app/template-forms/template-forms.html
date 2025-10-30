@@ -1,0 +1,92 @@
+<div class="container mt-4">
+    <h2>🧩 Template Driven Form Demo (Angular 20)</h2>
+    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+
+        <!-- NAME -->
+        <div class="form-group mb-3">
+            <label>Name</label>
+            <input type="text" name="name" class="form-control" [(ngModel)]="user.name" #nameRef="ngModel" required
+                minlength="3" />
+            <div class="text-danger" *ngIf="nameRef.invalid && nameRef.touched">
+                <small *ngIf="nameRef.errors?.['required']">Name is required.</small>
+                <small *ngIf="nameRef.errors?.['minlength']">Min 3 characters.</small>
+            </div>
+        </div>
+
+        <!-- EMAIL -->
+        <div class="form-group mb-3">
+            <label>Email</label>
+            <input type="email" name="email" class="form-control" [(ngModel)]="user.email" #emailRef="ngModel" required
+                email />
+            <div class="text-danger" *ngIf="emailRef.invalid && emailRef.touched">
+                <small *ngIf="emailRef.errors?.['required']">Email is required.</small>
+                <small *ngIf="emailRef.errors?.['email']">Invalid email format.</small>
+            </div>
+        </div>
+
+        <!-- PASSWORD -->
+        <div class="form-group mb-3">
+            <label>Password</label>
+            <input type="password" name="password" class="form-control" [(ngModel)]="user.password"
+                #passwordRef="ngModel" required minlength="6" pattern="^(?=.*[A-Z])(?=.*\d).+$" />
+            <div class="text-danger" *ngIf="passwordRef.invalid && passwordRef.touched">
+                <small *ngIf="passwordRef.errors?.['required']">Password required.</small>
+                <small *ngIf="passwordRef.errors?.['minlength']">Min 6 characters.</small>
+                <small *ngIf="passwordRef.errors?.['pattern']">Must contain 1 uppercase and 1 number.</small>
+            </div>
+        </div>
+
+        <!-- GENDER -->
+        <div ngModelGroup="genderGroup" class="mb-3">
+            <label>Gender</label><br />
+            <label><input type="radio" name="gender" value="male" [(ngModel)]="user.gender" required /> Male</label>
+            <label class="ms-3"><input type="radio" name="gender" value="female" [(ngModel)]="user.gender" required />
+                Female</label>
+            <div class="text-danger" *ngIf="!user.gender && userForm.submitted">
+                <small>Gender is required.</small>
+            </div>
+        </div>
+
+        <!-- COUNTRY -->
+        <div class="form-group mb-3">
+            <label>Country</label>
+            <select name="country" class="form-control" [(ngModel)]="user.country" required #countryRef="ngModel">
+                <option value="" disabled selected>Select a country</option>
+                <option *ngFor="let c of countries" [value]="c">{{ c }}</option>
+            </select>
+            <div class="text-danger" *ngIf="countryRef.invalid && countryRef.touched">
+                <small>Country is required.</small>
+            </div>
+        </div>
+
+        <!-- SKILLS -->
+        <div class="form-group mb-3">
+            <label>Skills</label><br />
+            <label><input type="checkbox" (change)="toggleSkill('Angular', $event)" /> Angular</label>
+            <label class="ms-3"><input type="checkbox" (change)="toggleSkill('React', $event)" /> React</label>
+            <label class="ms-3"><input type="checkbox" (change)="toggleSkill('Vue', $event)" /> Vue</label>
+            <div class="text-muted"><small>At least one skill recommended.</small></div>
+        </div>
+
+        <!-- TERMS -->
+        <div class="form-check mb-3">
+            <input type="checkbox" class="form-check-input" id="terms" name="terms" [(ngModel)]="user.terms"
+                #termsRef="ngModel" required />
+            <label class="form-check-label" for="terms">I agree to the terms</label>
+            <div class="text-danger" *ngIf="termsRef.invalid && termsRef.touched">
+                <small>You must accept the terms.</small>
+            </div>
+        </div>
+
+        <!-- BUTTONS -->
+        <button type="submit" class="btn btn-primary me-2" [disabled]="userForm.invalid">Submit</button>
+        <button type="button" class="btn btn-secondary" (click)="onReset(userForm)">Reset</button>
+    </form>
+
+    <!-- FORM STATUS -->
+    <hr />
+    <h5>🧭 Form Debug Info</h5>
+    <pre>{{ userForm.value | json }}</pre>
+    <p>Valid: {{ userForm.valid }}</p>
+    <p>Submitted: {{ submitted }}</p>
+</div>

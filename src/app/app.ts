@@ -6,11 +6,11 @@ import { PropertyBinding } from "./property-binding/property-binding";
 import { EventBinding } from "./event-binding/event-binding";
 import { TwoWayDataBinding } from "./two-way-data-binding/two-way-data-binding";
 import { Pipes } from "./pipes/pipes";
-// import { Child } from './child/child';
+import { TemplateForms } from "./template-forms/template-forms";
 
 @Component({
   selector: 'app-root',
-  imports: [StructuralDirective, AttributeDirective, InterpolationCOmponent, PropertyBinding, EventBinding, TwoWayDataBinding, Pipes],
+  imports: [StructuralDirective, AttributeDirective, InterpolationCOmponent, PropertyBinding, EventBinding, TwoWayDataBinding, Pipes, TemplateForms],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
