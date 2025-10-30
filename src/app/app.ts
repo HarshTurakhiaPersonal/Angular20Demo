@@ -4,11 +4,12 @@ import { AttributeDirective } from "./attribute-directive/attribute-directive";
 import { InterpolationCOmponent } from "./interpolation-component/interpolation-component";
 import { PropertyBinding } from "./property-binding/property-binding";
 import { EventBinding } from "./event-binding/event-binding";
+import { TwoWayDataBinding } from "./two-way-data-binding/two-way-data-binding";
 // import { Child } from './child/child';
 
 @Component({
   selector: 'app-root',
-  imports: [StructuralDirective, AttributeDirective, InterpolationCOmponent, PropertyBinding, EventBinding],
+  imports: [StructuralDirective, AttributeDirective, InterpolationCOmponent, PropertyBinding, EventBinding, TwoWayDataBinding],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
